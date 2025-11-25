@@ -1,0 +1,78 @@
+### 🔍 환경 변수 테스트
+### VS Code 하단에서 환경 선택: No Environment / dev / alpha / beta / real
+
+### ===================================
+### 1. 변수 확인 테스트 (가장 간단)
+### ===================================
+# 이 요청으로 변수가 제대로 치환되는지 확인
+GET https://openapi.naver.com/v1/search/blog.json?query=test&display=1
+X-Naver-Client-Id: YOUR_CLIENT_ID
+X-Naver-Client-Secret: YOUR_CLIENT_SECRET
+
+### 위 요청에서:
+### - YOUR_CLIENT_ID를 본인의 실제 Client ID로 교체
+### - YOUR_CLIENT_SECRET을 본인의 실제 Client Secret으로 교체
+### - Send Request 클릭하여 테스트
+
+###
+
+### ===================================
+### 2. 환경 변수 사용 (baseUrl만)
+### ===================================
+@baseUrl = https://openapi.naver.com
+
+GET {{baseUrl}}/v1/search/blog.json?query=test&display=1
+X-Naver-Client-Id: YOUR_CLIENT_ID
+X-Naver-Client-Secret: YOUR_CLIENT_SECRET
+
+###
+
+### ===================================
+### 3. 모든 변수를 파일 내에서 정의
+### ===================================
+@baseUrl = https://openapi.naver.com
+@clientId = YOUR_CLIENT_ID
+@clientSecret = YOUR_CLIENT_SECRET
+
+GET {{baseUrl}}/v1/search/blog.json?query=test&display=1
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### ===================================
+### 4. settings.json 환경 변수 사용
+### ===================================
+# VS Code 하단 상태바에서 "dev" 환경 선택 필요!
+GET {{baseUrl}}/v1/search/blog.json?query=test&display=1
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### ===================================
+### 💡 문제 해결 가이드
+### ===================================
+# 
+# ❌ 변수가 {{baseUrl}} 그대로 나타난다면:
+# 
+# 방법 1: 파일 내에서 직접 정의 (가장 확실)
+#   @baseUrl = https://openapi.naver.com
+#   @clientId = YOUR_REAL_CLIENT_ID
+#   @clientSecret = YOUR_REAL_CLIENT_SECRET
+#
+# 방법 2: 환경 선택 확인
+#   1. VS Code 하단 상태바 확인
+#   2. "No Environment" 또는 "dev" 등이 표시되어야 함
+#   3. 클릭하여 환경 선택
+#
+# 방법 3: VS Code 재시작
+#   1. VS Code 완전 종료
+#   2. 프로젝트 폴더 다시 열기
+#
+# 방법 4: REST Client 재설치
+#   1. Extensions에서 REST Client 제거
+#   2. VS Code 재시작
+#   3. REST Client 재설치
+#
+###

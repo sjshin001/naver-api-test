@@ -1,0 +1,100 @@
+### Naver Search API - Blog Search
+### 블로그 검색 API
+
+### 1. 블로그 검색 - 기본 검색 (정확도순)
+GET {{baseUrl}}/v1/search/blog.json?query=맛집&display=10&start=1&sort=sim
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 2. 블로그 검색 - 날짜순 정렬
+GET {{baseUrl}}/v1/search/blog.json?query=여행&display=5&start=1&sort=date
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 3. 블로그 검색 - 페이징 (2페이지)
+GET {{baseUrl}}/v1/search/blog.json?query=맛집&display=10&start=11&sort=sim
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 4. 뉴스 검색 - 최신순
+GET {{baseUrl}}/v1/search/news.json?query=경제&display=10&start=1&sort=date
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 5. 뉴스 검색 - 정확도순
+GET {{baseUrl}>/v1/search/news.json?query=기술&display=10&start=1&sort=sim
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 6. 책 검색
+GET {{baseUrl}}/v1/search/book.json?query=자바&display=10&start=1
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 7. 카페글 검색
+GET {{baseUrl}}/v1/search/cafearticle.json?query=프로그래밍&display=10&start=1
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 8. 지역 검색 (장소)
+GET {{baseUrl}}/v1/search/local.json?query=강남역 맛집&display=5
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 9. 영화 검색
+GET {{baseUrl}}/v1/search/movie.json?query=어벤져스&display=10
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 10. 쇼핑 검색
+GET {{baseUrl}}/v1/search/shop.json?query=노트북&display=10&sort=sim
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 11. 백과사전 검색
+GET {{baseUrl}}/v1/search/encyc.json?query=인공지능&display=10
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 12. 성인 검색어 필터링
+GET {{baseUrl}}/v1/search/adult.json?query=테스트
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 13. 웹문서 검색
+GET {{baseUrl}}/v1/search/webkr.json?query=자바스크립트&display=10
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 14. 이미지 검색
+GET {{baseUrl}}/v1/search/image?query=고양이&display=10&sort=sim
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###

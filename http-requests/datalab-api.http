@@ -1,0 +1,154 @@
+### Naver DataLab API
+### 데이터랩 API - 검색어 트렌드
+
+### 1. 검색어 트렌드 조회 (단일 키워드)
+POST {{baseUrl}}/v1/datalab/search
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "startDate": "2024-01-01",
+  "endDate": "2024-12-31",
+  "timeUnit": "month",
+  "keywordGroups": [
+    {
+      "groupName": "자바",
+      "keywords": ["자바", "java"]
+    }
+  ]
+}
+
+###
+
+### 2. 검색어 트렌드 비교 (여러 키워드)
+POST {{baseUrl}}/v1/datalab/search
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "startDate": "2024-01-01",
+  "endDate": "2024-12-31",
+  "timeUnit": "month",
+  "keywordGroups": [
+    {
+      "groupName": "자바",
+      "keywords": ["자바", "java"]
+    },
+    {
+      "groupName": "파이썬",
+      "keywords": ["파이썬", "python"]
+    },
+    {
+      "groupName": "자바스크립트",
+      "keywords": ["자바스크립트", "javascript"]
+    }
+  ]
+}
+
+###
+
+### 3. 검색어 트렌드 - 주간 단위
+POST {{baseUrl}}/v1/datalab/search
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "startDate": "2024-11-01",
+  "endDate": "2024-11-30",
+  "timeUnit": "week",
+  "keywordGroups": [
+    {
+      "groupName": "맛집",
+      "keywords": ["맛집", "restaurant"]
+    }
+  ]
+}
+
+###
+
+### 4. 검색어 트렌드 - 일간 단위
+POST {{baseUrl}}/v1/datalab/search
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "startDate": "2024-11-01",
+  "endDate": "2024-11-30",
+  "timeUnit": "date",
+  "keywordGroups": [
+    {
+      "groupName": "코로나",
+      "keywords": ["코로나", "covid"]
+    }
+  ]
+}
+
+###
+
+### 5. 검색어 트렌드 - 디바이스별 (PC)
+POST {{baseUrl}}/v1/datalab/search
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "startDate": "2024-01-01",
+  "endDate": "2024-12-31",
+  "timeUnit": "month",
+  "device": "pc",
+  "keywordGroups": [
+    {
+      "groupName": "쇼핑",
+      "keywords": ["쇼핑", "shopping"]
+    }
+  ]
+}
+
+###
+
+### 6. 검색어 트렌드 - 디바이스별 (모바일)
+POST {{baseUrl}}/v1/datalab/search
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "startDate": "2024-01-01",
+  "endDate": "2024-12-31",
+  "timeUnit": "month",
+  "device": "mo",
+  "keywordGroups": [
+    {
+      "groupName": "배달",
+      "keywords": ["배달", "delivery"]
+    }
+  ]
+}
+
+###
+
+### 7. 검색어 트렌드 - 성별/연령 필터
+POST {{baseUrl}}/v1/datalab/search
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "startDate": "2024-01-01",
+  "endDate": "2024-12-31",
+  "timeUnit": "month",
+  "gender": "f",
+  "ages": ["20", "30"],
+  "keywordGroups": [
+    {
+      "groupName": "화장품",
+      "keywords": ["화장품", "cosmetics"]
+    }
+  ]
+}
+
+###

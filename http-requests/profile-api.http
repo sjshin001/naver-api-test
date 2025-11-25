@@ -1,0 +1,53 @@
+### Naver Login Profile API
+### 네이버 로그인 사용자 프로필 조회
+
+### 참고: 이 API는 OAuth 2.0 Access Token이 필요합니다
+### Access Token 발급 절차가 선행되어야 합니다
+
+@accessToken = YOUR_ACCESS_TOKEN_HERE
+
+###
+
+### 1. 사용자 프로필 조회 (기본)
+GET {{baseUrl}}/v1/nid/me
+Authorization: Bearer {{accessToken}}
+
+###
+
+### 2. 사용자 프로필 조회 (XML 형식)
+# 참고: 기본은 JSON, XML이 필요한 경우 Accept 헤더 변경
+GET {{baseUrl}}/v1/nid/getUserProfile.xml
+Authorization: Bearer {{accessToken}}
+Accept: application/xml
+
+###
+
+### OAuth 2.0 Access Token 발급 가이드:
+### 1. https://developers.naver.com/apps/#/list
+### 2. 애플리케이션 등록 시 "네이버 로그인" API 추가
+### 3. Callback URL 설정
+### 4. 로그인 URL로 사용자 인증
+### 5. Callback으로 Authorization Code 받기
+### 6. Authorization Code로 Access Token 발급
+
+###
+
+### 예상 응답 (JSON):
+### {
+###   "resultcode": "00",
+###   "message": "success",
+###   "response": {
+###     "id": "32742776",
+###     "nickname": "OpenAPI",
+###     "name": "홍길동",
+###     "email": "openapi@naver.com",
+###     "gender": "M",
+###     "age": "40-49",
+###     "birthday": "05-16",
+###     "profile_image": "https://...",
+###     "birthyear": "1983",
+###     "mobile": "010-1234-5678"
+###   }
+### }
+
+###

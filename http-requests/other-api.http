@@ -1,0 +1,136 @@
+### Naver Other APIs
+### 기타 유용한 API들
+
+### ===================================
+### 파파고 번역 API
+### ===================================
+
+### 1. 한국어 → 영어 번역
+POST {{baseUrl}}/v1/papago/n2mt
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "source": "ko",
+  "target": "en",
+  "text": "안녕하세요"
+}
+
+###
+
+### 2. 영어 → 한국어 번역
+POST {{baseUrl}}/v1/papago/n2mt
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "source": "en",
+  "target": "ko",
+  "text": "Hello, World!"
+}
+
+###
+
+### 3. 일본어 → 한국어 번역
+POST {{baseUrl}}/v1/papago/n2mt
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "source": "ja",
+  "target": "ko",
+  "text": "こんにちは"
+}
+
+###
+
+### 4. 언어 감지
+POST {{baseUrl}}/v1/papago/detectLangs
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "query": "Hello"
+}
+
+###
+
+### ===================================
+### 단축 URL API
+### ===================================
+
+### 5. URL 단축
+POST {{baseUrl}}/v1/util/shorturl
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "url": "https://www.naver.com"
+}
+
+###
+
+### ===================================
+### 지도 API
+### ===================================
+
+### 6. 주소 → 좌표 변환 (Geocoding)
+GET {{baseUrl}}/v1/map/geocode?query=강남역
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 7. 좌표 → 주소 변환 (Reverse Geocoding)
+GET {{baseUrl}}/v1/map/reversegeocode?coords=127.027610,37.497942&output=json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 8. 경로 탐색 (길찾기)
+GET {{baseUrl}}/v1/map/direction?start=127.027610,37.497942&goal=127.043065,37.514575
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### ===================================
+### 음성 합성 API (TTS)
+### ===================================
+
+### 9. 텍스트를 음성으로 변환 (한국어 여성)
+POST {{baseUrl}}/v1/voice/tts.bin
+Content-Type: application/x-www-form-urlencoded
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+speaker=nara&speed=0&text=안녕하세요
+
+###
+
+### 10. 텍스트를 음성으로 변환 (한국어 남성)
+POST {{baseUrl}>/v1/voice/tts.bin
+Content-Type: application/x-www-form-urlencoded
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+speaker=jinho&speed=0&text=반갑습니다
+
+###
+
+### ===================================
+### QR 코드 생성 API
+### ===================================
+
+### 11. QR 코드 생성
+GET {{baseUrl}}/v1/util/qrcode?url=https://www.naver.com
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###

@@ -1,0 +1,67 @@
+### Naver Captcha API
+### 캡차 이미지 생성 및 검증
+
+### 1. 캡차 키 발급 (이미지용)
+GET {{baseUrl}}/v1/captcha/nkey?code=0
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+### 응답 예시:
+### { "key": "BpFyDARp..." }
+
+###
+
+@captchaKey = YOUR_CAPTCHA_KEY_HERE
+
+###
+
+### 2. 캡차 이미지 가져오기
+GET {{baseUrl}}/v1/captcha/ncaptcha.bin?key={{captchaKey}}
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+### 응답: 바이너리 이미지 데이터 (PNG)
+
+###
+
+### 3. 캡차 키 발급 (음성용)
+GET {{baseUrl}}/v1/captcha/nkey?code=1
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### 4. 캡차 음성 가져오기
+GET {{baseUrl}}/v1/captcha/scaptcha?key={{captchaKey}}
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+### 응답: 음성 데이터
+
+###
+
+@captchaValue = 사용자가_입력한_캡차값
+
+###
+
+### 5. 캡차 값 검증
+GET {{baseUrl}}/v1/captcha/skey?code=1&key={{captchaKey}}&value={{captchaValue}}
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+### 응답 예시:
+### {
+###   "result": true,  // 또는 false
+###   "responseTime": 500
+### }
+
+###
+
+### 캡차 사용 흐름:
+### 1. nkey API로 캡차 키 발급
+### 2. ncaptcha.bin으로 이미지 표시 (또는 scaptcha로 음성 재생)
+### 3. 사용자가 캡차 값 입력
+### 4. skey API로 검증
+### 5. result가 true면 성공, false면 실패
+
+###

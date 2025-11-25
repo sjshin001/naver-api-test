@@ -1,0 +1,146 @@
+### Naver Open API - Quick Test
+### 빠른 테스트를 위한 주요 API 모음
+
+### ⭐ 환경 선택: dev, alpha, beta, real
+### VS Code 하단에서 환경 선택 가능
+
+### ===================================
+### 1. Health Check - 블로그 검색 (가장 기본적인 API)
+### ===================================
+GET {{baseUrl}}/v1/search/blog.json?query=테스트&display=1
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+### 예상 결과: 200 OK
+### 만약 401이 나온다면 Client ID/Secret 확인 필요
+
+###
+
+### ===================================
+### 2. 블로그 검색 - 맛집
+### ===================================
+GET {{baseUrl}}/v1/search/blog.json?query=맛집&display=5&sort=sim
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### ===================================
+### 3. 뉴스 검색 - 최신 뉴스
+### ===================================
+GET {{baseUrl}}/v1/search/news.json?query=경제&display=5&sort=date
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### ===================================
+### 4. 책 검색
+### ===================================
+GET {{baseUrl}}/v1/search/book.json?query=자바&display=5
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### ===================================
+### 5. 지역 검색
+### ===================================
+GET {{baseUrl}}/v1/search/local.json?query=강남역 카페&display=5
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### ===================================
+### 6. 데이터랩 - 검색어 트렌드
+### ===================================
+POST {{baseUrl}}/v1/datalab/search
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "startDate": "2024-01-01",
+  "endDate": "2024-12-31",
+  "timeUnit": "month",
+  "keywordGroups": [
+    {
+      "groupName": "자바",
+      "keywords": ["자바", "java"]
+    },
+    {
+      "groupName": "파이썬",
+      "keywords": ["파이썬", "python"]
+    }
+  ]
+}
+
+###
+
+### ===================================
+### 7. 파파고 번역 - 한영
+### ===================================
+POST {{baseUrl}}/v1/papago/n2mt
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "source": "ko",
+  "target": "en",
+  "text": "안녕하세요, 테스트입니다."
+}
+
+###
+
+### ===================================
+### 8. 단축 URL 생성
+### ===================================
+POST {{baseUrl}}/v1/util/shorturl
+Content-Type: application/json
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+{
+  "url": "https://developers.naver.com"
+}
+
+###
+
+### ===================================
+### 9. 캡차 키 발급
+### ===================================
+GET {{baseUrl}}/v1/captcha/nkey?code=0
+X-Naver-Client-Id: {{clientId}}
+X-Naver-Client-Secret: {{clientSecret}}
+
+###
+
+### ===================================
+### 💡 사용 팁
+### ===================================
+### 
+### 1. 환경 전환:
+###    - VS Code 하단 상태바에서 "dev/alpha/beta/real" 선택
+###    
+### 2. 요청 실행:
+###    - 요청 위에 커서를 놓고 Ctrl+Alt+R (또는 Cmd+Alt+R)
+###    - 또는 요청 위의 "Send Request" 클릭
+###    
+### 3. 변수 확인:
+###    - {{baseUrl}}, {{clientId}}, {{clientSecret}}은 자동 치환
+###    - http-client.private.env.json에서 실제 값 설정
+###    
+### 4. 응답 확인:
+###    - 새 창에서 응답 결과 표시
+###    - JSON 형식으로 자동 포맷팅
+###
+### 5. 에러 해결:
+###    - 401 Unauthorized: Client ID/Secret 확인
+###    - 404 Not Found: URL 경로 확인
+###    - 429 Too Many Requests: Rate Limit 초과 (잠시 대기)
+###
+### ===================================
+
+###
