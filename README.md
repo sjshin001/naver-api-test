@@ -407,13 +407,7 @@ Build > Rebuild Project
 
 이 프로젝트는 학습 및 테스트 목적으로 만들어졌습니다.
 
-## 🤝 기여
 
-이슈나 개선 사항이 있으면 언제든지 Issue를 생성해주세요!
-
-## 📧 문의
-
-Naver Developers: https://developers.naver.com/
 
 ---
 
